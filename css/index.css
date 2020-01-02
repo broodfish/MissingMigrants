@@ -76,9 +76,9 @@ p {
 	pointer-events: none;
 	transition: opacity .2s;
 	opacity: 1;
-	font-size: 13px;
+	font-size: 12px;
 	line-height: 18px;
-	letter-spacing: .5px;
+	letter-spacing: .2px;
 }
 #tooltip.hidden {
 	opacity: 0;

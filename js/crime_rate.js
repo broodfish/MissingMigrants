@@ -123,8 +123,8 @@ d3.csv(crimeRateURL).then(function(data) {
 				.style('stroke-width', 3);
 
 			d3.select('#tooltip')
-				.style("left", Math.round(mouse[0])+10+"px") 
-			    .style("top", Math.round(mouse[1])+10+"px")
+				.style("left", Math.round(mouse[0])+"px") 
+			    .style("top", Math.round(mouse[1])+"px")
 				.classed('hidden', false) 
 				.html(tips(d));
 		}

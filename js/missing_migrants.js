@@ -78,7 +78,7 @@ d3.csv("https://raw.githubusercontent.com/Yunrou/repo1/master/MissingMigrants.cs
 			.style("left", Math.round(mouse[0])+"px") 
 		    .style("top", Math.round(mouse[1])+"px")
 			.classed('hidden', false) 
-			.html(d.count);
+			.html('<div><span>Number of Incidents：'+d.count+'</span><br><span>Total Death & Missing：'+d.total+'</span></div>');
 	}
 	var mouseover2 = function(d) {
 		var mouse = [d3.event.x, d3.event.y];
@@ -264,8 +264,9 @@ function resetNodes(data, tree) {
 		d.count = 1;
 		d.region = d["Region"];
 		d.death = d["Cause of Death"];
+		d.total = +d["Total Dead and Missing"];
 	});
-	console.log(data);
+	//console.log(data);
 	// Data group by region 
 	var regionStat = d3.nest()
 						.key(function(d) { return d["Region"]; })
@@ -328,9 +329,15 @@ function cluster(quadtree, range) {
 				if (searched && searched.length) {
 					var lat = 0;
 					var long = 0;
+					var total = 0;
 					for (var i=0; i<searched.length; i+=1){
 						lat += searched[i].lat;
 						long += searched[i].long;
+						if (!isNaN(searched[i].total)){
+							total += searched[i].total;
+						}
+						
+						
 					}
 
 					lat = lat/searched.length;
@@ -340,7 +347,8 @@ function cluster(quadtree, range) {
 						'lat': lat,
 						'long': long,
 						'count': searched.length,
-						'region': region
+						'region': region, 
+						'total': total
 					}
 					cltnodes.push(c);
 				}
