@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+ 	<head>
+	    <title>Missing Migrants</title>
+	    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	    <meta charset="utf-8">
+
+		<!-- Load d3.js and the geo projection plugin -->
+		<script src="https://d3js.org/d3.v5.min.js"></script>
+		<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+		<script src="https://d3js.org/d3-quadtree.v1.min.js"></script>
+		<!-- Load Leaflet -->
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+
+		<!-- Load Vega-lite -->
+		<script src="https://cdn.jsdelivr.net/npm/vega@5.7.2"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@4.0.0-beta.10"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@5.1.3"></script>
+
+		<!--header-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="./css/index.css" rel="stylesheet" type="text/css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript" src="./js/header.js" ></script>
+		<link href="https://fonts.googleapis.com/css?family=Inria+Serif|Noto+Serif+TC&display=swap" rel="stylesheet">
+	</head>
+	<header>
+		<!--  add dark nav  -->
+		<nav class="nav">
+			<div class="container">
+				<div class="nav-heading">
+					<button class="toggle-nav" data-toggle="open-navbar1"><i class="fa fa-align-right"></i></button>
+					<a class="brand" href="index.html">Missing Migrants (2014 - 2019)</a>
+				</div>
+				<div class="menu" id="open-navbar1">
+					<ul class="list">
+					  <li class="categories"><a href="#" id="open-categories" data-dropdown="target" href="#">Missing Migrants <i class="fa fa-caret-down"></i></a>
+						<ul class="drop-down" id="target">
+							<li><a href="index.html">Bubble Map</a></li>
+							<li class="seprator"></li>
+							<li><a href="cause.html">Cause of Death</a></li>
+							<li class="seprator"></li>
+							<li><a href="region.html">Region of Incident</a></li>
+						</ul>
+						</li>
+						<li><a href="index1.html">Crime Rate</a></li>
+						<li><a href="index2.html">About Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<body>
+	    <!-- Create an element where the map will take place -->
+		<div id="dashboard">
+			<div id="tooltip" class="hidden" style="left:70px; top:10px;"></div>
+			<div class="detail">Number of missing migrant incidents in each region. (zoom to see details)</div>
+			<div class="legend"></div>
+			<div id="mapid"></div>
+			<div id="chart">
+				<li id="close"><i class="fa fa-times" ></i></li>
+				<div id="title"></div>
+				<div class="chart" id="Africa" style="display: none"></div>
+				<div class="chart" id="America" style="display: none"></div>
+				<div class="chart" id="Asia" style="display: none"></div>
+				<div class="chart" id="Europe" style="display: none"></div>
+				<div class="chart" id="MiddleEast" style="display: none"></div>
+				<div class="chart" id="Mediterranean" style="display: none"></div>
+			</div>
+			<!-- <div class="list"></div>
+			<div id="element1"></div>
+			<div id="element2"></div> -->
+		</div>
+
+		
+		<script type="text/javascript" src="./js/missing_migrants.js" ></script>
+		<script type="text/javascript" src="./js/death.js" ></script>
+	</body>
+</html>
