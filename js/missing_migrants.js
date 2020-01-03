@@ -47,8 +47,8 @@ d3.csv("https://raw.githubusercontent.com/Yunrou/repo1/master/MissingMigrants.cs
 				.domain(regionName)
 				.range(colorPalette);//d3.schemeSet3);
 	var scaleSize = d3.scaleThreshold()
-					.domain([2, 20, 50, 100, 500, 600, 700]) // count
-					.range([3, 4, 6, 8, 12, 15, 20, 25]); // circle size
+					.domain([2, 20, 50, 100, 500, 1000, 2000, 5000]) // count
+					.range([2, 3, 5, 8, 11, 14, 17, 20, 25]); // circle size
 	var cltRange = d3.scaleThreshold()
 					.domain([2.6, 3.5, 4.5])
 					.range([18, 10, 8, 5]);
@@ -148,7 +148,7 @@ d3.csv("https://raw.githubusercontent.com/Yunrou/repo1/master/MissingMigrants.cs
 			.attr("class", "bubble")
 			.attr("cx", function(d){ return map.latLngToLayerPoint([d.lat, d.long]).x })
 			.attr("cy", function(d){ return map.latLngToLayerPoint([d.lat, d.long]).y })
-			.attr("r", function(d){ return scaleSize(d.count); })
+			.attr("r", function(d){ return scaleSize(d.total); })
 			.style("fill", function(d){ return color(d.region); })
 			.attr("stroke", function(d){ return color(d.region); })
 			.attr("stroke-width", 1)
@@ -213,7 +213,7 @@ d3.csv("https://raw.githubusercontent.com/Yunrou/repo1/master/MissingMigrants.cs
 					.attr("id", function(d) { return d.region;})
 				    .attr("cx", function(d){ return map.latLngToLayerPoint([d.lat, d.long]).x })
 				    .attr("cy", function(d){ return map.latLngToLayerPoint([d.lat, d.long]).y })
-				    .attr("r", function(d){ return scaleSize(d.count); })
+				    .attr("r", function(d){ return scaleSize(d.total); })
 				    .style("fill", function(d){ return color(d.region); })
 				    .attr("stroke", function(d){ return color(d.region); })
 				    .attr("stroke-width", 1)
@@ -233,7 +233,7 @@ d3.csv("https://raw.githubusercontent.com/Yunrou/repo1/master/MissingMigrants.cs
 					.attr('id', function(d) { return d.region;})
 				    .attr("cx", function(d){ return map.latLngToLayerPoint([d.lat, d.long]).x })
 				    .attr("cy", function(d){ return map.latLngToLayerPoint([d.lat, d.long]).y })
-				    .attr("r", function(d){ return scaleSize(d.count); })
+				    .attr("r", function(d){ return scaleSize(d.total); })
 				    .style("fill", function(d){ return color(d.region); })
 				    .attr("stroke", function(d){ return color(d.region); })
 				    .attr("stroke-width", 1)

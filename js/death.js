@@ -71,6 +71,7 @@ function getelement(url, regionName) {
 		{ 
 		  "orient": "top", 
 		  "scale": "yscale",
+		  "title": "Number of Death",
 		  "ticks": false,
 		  "domain": false,
 		  "encode": { "labels": { "update": {"dy": {"value": 3}, "fontSize": {"value": 12}}}}
